@@ -3,7 +3,8 @@ const rectangleManager = new RectangleManager();
 let actualRectangle = undefined;
 
 function AddRectangle() {
-    openMenu(rectangleManager.addRectangle(new Rectangle(0, 0, 100, 10)));
+    let rectangle = actualRectangle ? actualRectangle.rect : new Rectangle(0, 0, 100, 10);
+    openMenu(rectangleManager.addRectangle(rectangle));
 }
 
 function openMenu(id) {
@@ -48,4 +49,13 @@ function submitChanges() {
     rectangleManager.rectangles[document.getElementById('title-input').innerText] = getRectangleObjFromForm();
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
     renderElement(actualRectangle.div, formInput.rect, formInput.div.innerText, []);
+}
+
+function deleteActualRectangle() {
+    id = rectangleManager.deleteRectangle(document.getElementById('title-input').innerText);
+    if(!id) {
+        document.getElementById('elementForm').classList.add('hidden');
+    } else {
+        openMenu(id)
+    }
 }

@@ -9,6 +9,10 @@ document.getElementById('addRectangleBtn').addEventListener('click', () => {
     AddRectangle();
 })
 
+document.getElementById('delte-rect-btn').addEventListener('click', () => {
+    deleteActualRectangle();
+})
+
 document.getElementById('elementForm').addEventListener('change', () => {
     submitChanges();
 });

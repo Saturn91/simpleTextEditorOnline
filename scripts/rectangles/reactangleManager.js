@@ -23,4 +23,15 @@ class RectangleManager {
         this.counter ++;
         return id;
     }
+
+    deleteRectangle(id) {
+        printableArea.removeChild(rectangleManager.rectangles[id].div);
+        delete rectangleManager.rectangles[id];
+        let numOfRects = Object.keys(rectangleManager.rectangles).length;
+        if(numOfRects > 0) {
+            return Object.keys(rectangleManager.rectangles)[numOfRects-1];
+        } else {
+            return undefined;
+        }
+    }
 }
