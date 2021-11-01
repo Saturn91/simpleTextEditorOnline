@@ -7,13 +7,20 @@ function AddRectangle() {
 }
 
 function openMenu(id) {
+    if(actualRectangle) {
+        if(actualRectangle.div.classList.contains('highlighted')) actualRectangle.div.classList.remove('highlighted');
+    } 
     const elementForm = document.getElementById('elementForm');
     if (elementForm.classList.contains('hidden')) elementForm.classList.remove('hidden');
-    fillMenuValues(rectangleManager.rectangles[id]);
+
+    actualRectangle = rectangleManager.rectangles[id];
+
+    actualRectangle.div.classList.add('highlighted');
+
+    fillMenuValues(actualRectangle);
 }
 
 function fillMenuValues(element) {
-    actualRectangle = element;
     document.getElementById('title-input').innerText = element.div.id;
     document.getElementById('positionX-input').value = convertMMStyleToNumber(element.rect.x);
     document.getElementById('positionY-input').value = convertMMStyleToNumber(element.rect.y);
