@@ -1,3 +1,9 @@
+const rectangleManager = new RectangleManager();
+
 function AddRectangle() {
-    printableArea.innerHTML += '<div>test</div>';
+    rectangleManager.addRectangle(new Rectangle(0, 0, 100, 10));
+}
+
+function openMenu(object) {
+
 }

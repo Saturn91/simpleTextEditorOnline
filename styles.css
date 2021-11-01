@@ -1,8 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    
+    height: 100vh;    
 }
 
 .toolbar {
@@ -41,4 +40,13 @@ body {
 
 .printable-area {
     background-color: rgb(255, 255, 255);
+}
+
+.editor-rect {
+    position: absolute;
+}
+
+.editor-rect:hover {
+    background-color: rgb(100, 100, 100);
+    color: white;
 }
