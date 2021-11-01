@@ -21,6 +21,10 @@ function openMenu(id) {
     fillMenuValues(actualRectangle);
 }
 
+function closeMenu() {
+    document.getElementById('elementForm').classList.add('hidden');
+}
+
 function updateFontTypeCheckboxes(fontType) {
     document.getElementById('default-font-input').checked = fontType == FontType.Default;
     document.getElementById('italic-font-input').checked = fontType == FontType.Italic;
@@ -71,8 +75,8 @@ function submitChanges() {
 function deleteActualRectangle() {
     id = rectangleManager.deleteRectangle(document.getElementById('title-input').innerText);
     if(!id) {
-        document.getElementById('elementForm').classList.add('hidden');
+        closeMenu();
     } else {
-        openMenu(id)
+        openMenu(id);
     }
 }

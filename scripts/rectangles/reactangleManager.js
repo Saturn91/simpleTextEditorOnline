@@ -17,14 +17,9 @@ class RectangleManager {
             text: id
         }
 
-        renderElement(this.rectangles[id], ['editor-rect']);
+        renderElement(this.rectangles[id], ['editor-rect']);       
 
-       
-
-        document.getElementById(id).addEventListener('click', () => {
-            openMenu(id);
-        })
-
+        this.addEventListenerToRectangle(id);
         
         this.counter ++;
         return id;
@@ -39,5 +34,14 @@ class RectangleManager {
         } else {
             return undefined;
         }
+    }
+
+    addEventListenerToRectangle(id) {
+        this.rectangles[id].div = document.getElementById(id);
+        this.rectangles[id].text = document.getElementById(id).innerText;
+
+        this.rectangles[id].div.addEventListener('click', () => {
+            openMenu(id);
+        })
     }
 }
