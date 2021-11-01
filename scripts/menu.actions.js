@@ -4,7 +4,7 @@ function AddRectangle() {
     rectangleManager.addRectangle(new Rectangle(0, 0, 100, 10));
 }
 
-function openMenu(object) {
-    console.log(object);
-    console.log('was opened!');
+function openMenu(id) {
+    console.log(rectangleManager.rectangles[id]);
+    console.log(id + " was opened!");
 }

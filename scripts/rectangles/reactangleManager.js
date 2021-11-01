@@ -5,14 +5,21 @@ class RectangleManager {
     }   
 
     addRectangle(rectangle) {
-        this.rectangles[this.counter] = (rectangle);
         const id = 'rect-'+this.counter;
         const div = printableArea.appendChild(document.createElement('div'));
         div.id = id;
-        renderElement(div, rectangle, 'test', ['editor-rect']);
+        renderElement(div, rectangle, id, ['editor-rect']);
+
+        this.rectangles[id] = {
+            rect:  rectangle,
+            div: div
+        }
+
         document.getElementById(id).addEventListener('click', () => {
-            openMenu(rectangle);
+            openMenu(id);
         })
+
+        
         this.counter ++;
     }
 }
