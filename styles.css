@@ -77,6 +77,11 @@ body {
     margin-right: 5px;
 }
 
+.input-line .checkbox {
+    width: 20px;
+    height: 20px;
+}
+
 .input-line textarea {
     width: 100%;
     margin-right: 5px;

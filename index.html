@@ -12,6 +12,7 @@
     <script src="./scripts/utils.js"></script>
     <script src="./scripts/formats.js"></script>
     <script src='./scripts/rectangles/rectangle.js'></script>
+    <script src='./scripts/rectangles/font.js'></script>
     <script src='./scripts/rectangles/reactangleManager.js'></script>
     <script src="./scripts/htmlElement.service.js"></script>
     <script src="./scripts/menu.actions.js"></script>
@@ -38,6 +39,18 @@
                 <div class='input-line'>
                     <label for="height">Height [mm]:</label>
                     <input type="number" id="height-input" name="height" value="0">
+                </div>
+                <div class='input-line'>
+                    <label for="default">Default:</label>
+                    <input type="checkbox" name="default" value="default" checked class='checkbox' id='default-font-input'>
+                </div>
+                <div class='input-line'>
+                    <label for="italic">Italic:</label>
+                    <input type="checkbox" name="italic" value="italic" class='checkbox' id='italic-font-input'>
+                </div>
+                <div class='input-line'>
+                    <label for="bold">Bold:</label>
+                    <input type="checkbox" name="bold" value="bold" class='checkbox' id='bold-font-input'>
                 </div>
                 <div class='input-line'>
                     <label for="text">Text:</label>

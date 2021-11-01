@@ -8,12 +8,17 @@ class RectangleManager {
         const id = 'rect-'+this.counter;
         const div = printableArea.appendChild(document.createElement('div'));
         div.id = id;
-        renderElement(div, rectangle, id, ['editor-rect']);
+        const font = new Font(FontType.Normal, convertToStyleStringPX(16));
 
         this.rectangles[id] = {
             rect:  rectangle,
-            div: div
+            div: div,
+            font: font
         }
+
+        renderElement(div, rectangle, font,  id, ['editor-rect']);
+
+       
 
         document.getElementById(id).addEventListener('click', () => {
             openMenu(id);
