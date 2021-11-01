@@ -21,6 +21,21 @@ document.getElementById('text-input').addEventListener('keyup', () => {
     submitChanges();
 })
 
+const checkboxDefaultFonttype = document.getElementById('default-font-input');
+checkboxDefaultFonttype.addEventListener('change', () => {
+    if(checkboxDefaultFonttype.checked) updateFontTypeCheckboxes(FontType.Default);
+})
+
+const checkboxItalicFonttype = document.getElementById('italic-font-input');
+checkboxItalicFonttype.addEventListener('change', () => {
+    if(checkboxItalicFonttype.checked) updateFontTypeCheckboxes(FontType.Italic);
+})
+
+const checkboxBoldFonttype = document.getElementById('bold-font-input');
+checkboxBoldFonttype.addEventListener('change', () => {
+    if(checkboxBoldFonttype.checked) updateFontTypeCheckboxes(FontType.Bold);
+})
+
 const widthAsMM = document.getElementById('actualWidth-display');
 const widthAsProcent = document.getElementById('width-input');
 widthAsProcent.onchange = () => {

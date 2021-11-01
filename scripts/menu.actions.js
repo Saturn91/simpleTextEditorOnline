@@ -21,6 +21,18 @@ function openMenu(id) {
     fillMenuValues(actualRectangle);
 }
 
+function updateFontTypeCheckboxes(fontType) {
+    document.getElementById('default-font-input').checked = fontType == FontType.Default;
+    document.getElementById('italic-font-input').checked = fontType == FontType.Italic;
+    document.getElementById('bold-font-input').checked = fontType == FontType.Bold;
+}
+
+function getFontTypeFromCheckboxes() {
+    if(document.getElementById('default-font-input').checked) return FontType.Default;
+    if(document.getElementById('italic-font-input').checked) return FontType.Italic;
+    if(document.getElementById('bold-font-input').checked) return FontType.Bold;
+}
+
 function fillMenuValues(element) {
     document.getElementById('title-input').innerText = element.div.id;
     document.getElementById('positionX-input').value = convertMMStyleToNumber(element.rect.x);
@@ -29,6 +41,8 @@ function fillMenuValues(element) {
     document.getElementById('actualWidth-display').value = element.rect.width;
     document.getElementById('height-input').value = convertMMStyleToNumber(element.rect.height);
     document.getElementById('text-input').value = element.div.innerText;
+    updateFontTypeCheckboxes(element.font.type);    
+    document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
 }
 
 function getRectangleObjFromForm() {
@@ -40,7 +54,10 @@ function getRectangleObjFromForm() {
             document.getElementById('height-input').value
         ),
         div: actualRectangle.div,
-        font: actualRectangle.font,
+        font: new Font(
+            getFontTypeFromCheckboxes(),
+            convertToStyleStringPX(document.getElementById('font-size-input').value)
+        ),
         text: document.getElementById('text-input').value
     }
 }

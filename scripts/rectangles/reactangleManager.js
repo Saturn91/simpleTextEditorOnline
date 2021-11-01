@@ -8,7 +8,7 @@ class RectangleManager {
         const id = 'rect-'+this.counter;
         const div = printableArea.appendChild(document.createElement('div'));
         div.id = id;
-        const font = new Font(FontType.Normal, convertToStyleStringPX(16));
+        const font = new Font(FontType.Default, convertToStyleStringPX(16));
 
         this.rectangles[id] = {
             rect:  rectangle,
