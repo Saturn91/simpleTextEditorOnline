@@ -40,6 +40,7 @@ body {
 
 .printable-area {
     background-color: rgb(255, 255, 255);
+    position: relative;
 }
 
 .editor-rect {
@@ -49,4 +50,35 @@ body {
 .editor-rect:hover {
     background-color: rgb(100, 100, 100);
     color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.input-line {
+    padding: 5px;
+    display: flex;
+    justify-content: stretch;
+}
+
+.input-line label {
+    min-width: 100px;
+}
+
+.input-line input {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.input-line textarea {
+    width: 100%;
+    margin-right: 5px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-end-btn {
+    width: 100%;
+    height: 30px;
 }

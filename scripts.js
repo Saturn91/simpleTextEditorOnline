@@ -9,3 +9,12 @@ document.getElementById('addRectangleBtn').addEventListener('click', () => {
     AddRectangle();
 })
 
+document.getElementById('elementForm').addEventListener('change', () => {
+    submitChanges();
+});
+
+const widthAsMM = document.getElementById('actualWidth-display');
+const widthAsProcent = document.getElementById('width-input');
+widthAsProcent.onchange = () => {
+    widthAsMM.value = convertToStyleStringProzent(widthAsProcent.value);
+}

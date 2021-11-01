@@ -9,3 +9,7 @@ function convertMMStyleToNumber(style) {
 function convertToStyleStringProzent(number) {
     return (number / 100 * convertMMStyleToNumber(actualFormat.printableWidth)) + "mm";
 }
+
+function convertMMToProcent(style) {
+    return convertMMStyleToNumber(style) / convertMMStyleToNumber(actualFormat.printableWidth) * 100;
+}

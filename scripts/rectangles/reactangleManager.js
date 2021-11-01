@@ -21,5 +21,6 @@ class RectangleManager {
 
         
         this.counter ++;
+        return id;
     }
 }

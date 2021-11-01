@@ -6,11 +6,12 @@ function setElementSize(element, width, height) {
 }
 
 function positionHTMLElement(element, x, y) {
-    element.style.left =  convertToStyleStringMM(x);
-    element.style.top =  convertToStyleStringMM(y);
+    element.style.setProperty("left", x);
+    element.style.setProperty("top", y);
 }
 
 function renderElement(element, rectangle, innerHtml, classElements) {
+    element.style = "";
     setElementSize(element,  rectangle.width, rectangle.height);
     positionHTMLElement(element, rectangle.x, rectangle.y);
     element.innerText = innerHtml;
