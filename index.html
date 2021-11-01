@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online File Editor</title>
+    <link href='./styles.css' rel="stylesheet">
+    <script src="./scripts/formats.js"></script>
+    <script src="./scripts/setElementSize.service.js"></script>
+    <script src="./scripts/menu.actions.js"></script>
+</head>
+<body>
+    <div class='toolbar'>
+        <select>
+            <option value="">--Please choose a Format--</option>
+        </select>
+        <button id='addRectangleBtn'>Add Rectangle</button>
+    </div>
+    <div class="container">
+        <div class='menu'>menu</div>
+        <div class='editor center-children-horizontal'>
+            <div id='visible-outline-page' class='visible-outline center-children-horizontal'>
+                <div id='printable-area' class='printable-area'>
+
+                </div>
+            </div>        
+        </div>        
+    </div>    
+    <script src="./scripts.js"></script> 
+    <script src="./scripts/print.script.js"></script> 
+</body>
+</html>

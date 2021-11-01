@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    
+}
+
+.toolbar {
+    height: 30px;
+}
+
+.container {
+    max-height: calc(100vh-50px);
+    display: flex;
+    overflow-y: auto;
+}
+
+.menu {
+    width: 25%;
+    max-height: calc(100vh-50px);
+    overflow-y: auto;
+}
+
+.center-children-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor {
+    background-color: rgb(163, 163, 163);
+    width: auto;
+    padding: 20px;
+    min-width: 75%;
+}  
+
+.visible-outline {
+    background-color: white
+}
+
+.printable-area {
+    background-color: rgb(255, 255, 255);
+}
