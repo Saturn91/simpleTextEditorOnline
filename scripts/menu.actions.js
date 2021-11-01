@@ -5,5 +5,6 @@ function AddRectangle() {
 }
 
 function openMenu(object) {
-
+    console.log(object);
+    console.log('was opened!');
 }
