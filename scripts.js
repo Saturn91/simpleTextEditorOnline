@@ -17,6 +17,10 @@ document.getElementById('elementForm').addEventListener('change', () => {
     submitChanges();
 });
 
+document.getElementById('text-input').addEventListener('keyup', () => {
+    submitChanges();
+})
+
 const widthAsMM = document.getElementById('actualWidth-display');
 const widthAsProcent = document.getElementById('width-input');
 widthAsProcent.onchange = () => {

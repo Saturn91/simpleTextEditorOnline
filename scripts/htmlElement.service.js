@@ -20,13 +20,13 @@ function setFont(element, font) {
     element.style.setProperty('font-size', font.size);
 }
 
-function renderElement(element, rectangle, font, innerHtml, classElements) {
-    element.style = "";
-    setElementSize(element,  rectangle.width, rectangle.height);
-    positionHTMLElement(element, rectangle.x, rectangle.y);
-    setFont(element, font);
-    element.innerText = innerHtml;
+function renderElement(rectangle, classElements) {
+    rectangle.div.style = "";
+    setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);
+    positionHTMLElement(rectangle.div, rectangle.rect.x, rectangle.rect.y);
+    setFont(rectangle.div, rectangle.font);
+    rectangle.div.innerText = rectangle.text;
     classElements.forEach(classElement => {
-        if(!element.classList.contains(classElement)) element.classList.add(classElement);
+        if(!rectangle.div.classList.contains(classElement)) rectangle.div.classList.add(classElement);
     })    
 }

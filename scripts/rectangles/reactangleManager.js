@@ -13,10 +13,11 @@ class RectangleManager {
         this.rectangles[id] = {
             rect:  rectangle,
             div: div,
-            font: font
+            font: font,
+            text: id
         }
 
-        renderElement(div, rectangle, font,  id, ['editor-rect']);
+        renderElement(this.rectangles[id], ['editor-rect']);
 
        
 

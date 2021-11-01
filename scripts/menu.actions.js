@@ -32,8 +32,6 @@ function fillMenuValues(element) {
 }
 
 function getRectangleObjFromForm() {
-    let temp = actualRectangle.div;
-    temp.innerText = document.getElementById('text-input').value;
     return {
         rect: new Rectangle(
             document.getElementById('positionX-input').value,
@@ -41,14 +39,16 @@ function getRectangleObjFromForm() {
             document.getElementById('width-input').value,
             document.getElementById('height-input').value
         ),
-        div: temp
+        div: actualRectangle.div,
+        font: actualRectangle.font,
+        text: document.getElementById('text-input').value
     }
 }
 
 function submitChanges() {
     rectangleManager.rectangles[document.getElementById('title-input').innerText] = getRectangleObjFromForm();
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
-    renderElement(actualRectangle.div, formInput.rect, formInput.div.innerText, []);
+    renderElement(formInput, []);
 }
 
 function deleteActualRectangle() {
