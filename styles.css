@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;    
+    height: 100vh;   
+    font-family: 'Roboto', sans-serif; 
 }
 
 .toolbar {
@@ -16,6 +17,7 @@ body {
 
 .menu {
     width: 25%;
+    min-width: 300px;
     max-height: calc(100vh-50px);
     overflow-y: auto;
 }
