@@ -1,16 +1,17 @@
 # simpleTextEditorOnline
 
+## Content
+- [Purpose](#purpose-tag)
+- [How to Use](#usage-tag)
+- [Planned Features](#plannedFeatures)
+
 Access latest release here: https://saturn91.github.io/simpleTextEditorOnline/
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/Saturn91/simpleTextEditorOnline/master/documentation/usage.png" alt="application usage"/>
 </div>
 
-## planned Features
-- Possibility for the user to delete files which are stored in the local storage
-- Images within Text
-
-## Purpose
+## <a name="purpose-tag">Purpose</a>
 
 I just god feed up with some big Company's Text-Editor office app. The way text and formats break when you add elements in the wrong location is mind blwoing... The Goal of this application is 
 to reduce the often times bloated interface and possibilities you have with your commen Text Editor. 
@@ -19,7 +20,8 @@ In this first implementation it is already capable of generating a single Page A
 <div align="center">
   <img src="https://raw.githubusercontent.com/Saturn91/simpleTextEditorOnline/master/documentation/example.png" alt="generated A4 Letter as PDF" width="500px"/>
 </div>
-## Usage
+
+## <a name="usage-tag">How to use</a>
 The whole application assumes on the fact that you can represent different paragraphs (and Titles) as a Rectangle which you can freely place on the page. Please note that the preview on
 the right site is only used to select (see section Select/Edit an existing Paragraph). Editing is done in the left hand side menu.
 
@@ -40,7 +42,7 @@ the right site is only used to select (see section Select/Edit an existing Parag
 2. Click on the paragraph which is highlited
 3. The Menu on the left side will now show the properties of the newly selected Paragraph
 
-## Export, Save and Print
+### Export, Save and Print
 
 As this Application is "just" a simple HTML/JS/CSS Page there is no Backend which would you allow to store your files online. But I implemented some other possibilities to store 
 your Data for reusage, sharing and saving.
@@ -57,3 +59,7 @@ next Time you open that Browser (on the same machine!), if you click on the "no 
 
 - If you would like to store your data somewhere else (i.e. some cloud storage or localy in a file) what you can do is extract the large text part from the "Json:" Textfield. copy the whole 
 Text and store in some textfile. To import it, simple copy the text within the file and paste it in the "Json:" Textfield. By than pressing the button "Load" your data shout reapear.
+
+## <a name="plannedFeatures">Planned Features</a>
+- Possibility for the user to delete files which are stored in the local storage
+- Images within Text
