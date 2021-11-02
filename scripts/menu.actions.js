@@ -46,6 +46,8 @@ function fillMenuValues(element) {
     document.getElementById('actualWidth-display').value = element.rect.width;
     document.getElementById('height-input').value = convertMMStyleToNumber(element.rect.height);
     document.getElementById('text-input').value = element.div.innerText;
+    document.getElementById('backgroundColor-input').value = element.rect.backGroundColor;
+    document.getElementById('font-color-input').value = element.font.color;
     updateFontTypeCheckboxes(element.font.type);    
     document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
 }
@@ -56,14 +58,16 @@ function getRectangleObjFromForm() {
             document.getElementById('positionX-input').value,
             document.getElementById('positionY-input').value,
             document.getElementById('width-input').value,
-            document.getElementById('height-input').value
+            document.getElementById('height-input').value,
+            document.getElementById('backgroundColor-input').value
         ),
         div: actualRectangle.div,
         font: new Font(
             getFontTypeFromCheckboxes(),
-            convertToStyleStringPX(document.getElementById('font-size-input').value)
+            convertToStyleStringPX(document.getElementById('font-size-input').value),
+            document.getElementById('font-color-input').value
         ),
-        text: document.getElementById('text-input').value
+        text: document.getElementById('text-input').value == '' ? ' ' : document.getElementById('text-input').value
     }
 }
 

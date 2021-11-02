@@ -18,12 +18,15 @@ function setFont(element, font) {
     } 
 
     element.style.setProperty('font-size', font.size);
+
+    element.style.setProperty('color', font.color);
 }
 
 function renderElement(rectangle, classElements) {
     rectangle.div.style = "";
     setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);
     positionHTMLElement(rectangle.div, rectangle.rect.x, rectangle.rect.y);
+    rectangle.div.style.setProperty('background-color', rectangle.rect.backGroundColor);
     setFont(rectangle.div, rectangle.font);
     rectangle.div.innerText = rectangle.text;
     classElements.forEach(classElement => {

@@ -5,8 +5,9 @@ const FontType = {
 }
 
 class Font {
-    constructor(type, size) {
+    constructor(type, size, color) {
         this.type = type;
         this.size = size;
+        this.color = color ? color : '#000000';
     }
 }

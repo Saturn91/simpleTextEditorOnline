@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;   
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
 }
 
 .toolbar {
@@ -47,15 +47,22 @@ body {
 
 .editor-rect {
     position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0);
+    text-align: justify;
 }
 
 .editor-rect:hover {
-    background-color: rgb(100, 100, 100);
-    color: white;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: rgb(192, 192, 192);
 }
 
 .highlighted {
-    background-color: rgba(255, 187, 0, 0.267);
+    border-style: dotted;
+    border-width: 1px;
+    border-color: rgb(114, 114, 114);
 }
 
 .hidden {
@@ -95,5 +102,5 @@ body {
 }
 
 .print .highlighted {
-    background-color: rgba(255, 187, 0, 0);
+    border-color: rgba(0, 0, 0, 0);
 }
