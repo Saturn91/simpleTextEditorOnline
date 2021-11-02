@@ -1,3 +1,5 @@
+const localStorgeFilePath = 'filepath';
+
 class RectangleManager {
     constructor() {
         this.rectangles = {};
@@ -47,6 +49,18 @@ class RectangleManager {
 
     saveToJSON() {
         return JSON.stringify(this.rectangles);
+    }
+
+    saveToLocalStorage(fileName) {
+        const path = localStorgeFilePath + "-" + fileName;
+        alert('saved file: ' + path);
+        localStorage.setItem(path, JSON.stringify(this.rectangles));
+    }
+
+    loadFromLocalStorage(fileName) {
+        const path = localStorgeFilePath + "-" + fileName;
+        alert('loaded file: ' + path);
+        this.loadJSON(localStorage.getItem(path));
     }
 
     loadJSON(jsonString) {

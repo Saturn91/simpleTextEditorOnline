@@ -10,6 +10,30 @@ let widthAsProcent = document.getElementById('width-input');
 setElementSize(visiblePageOutline, actualFormat.width, actualFormat.height);
 setElementSize(printableArea, actualFormat.printableWidth, actualFormat.printableHeight);
 
+function reRenderFileSelect() {
+    const fileSelect = document.getElementById('fileSelect');
+    const actualOptions = [...fileSelect.children];
+    actualOptions.forEach(child => {
+        fileSelect.removeChild(child);
+    });
+
+    const option1 = fileSelect.appendChild(document.createElement('option'));
+    option1.value = 'none';
+    option1.innerHTML = 'no File selected'
+    let files = [];
+
+    for (var key in localStorage){
+        if(key.includes(localStorgeFilePath+"-")) files.push(key.substring(localStorgeFilePath.length+1));
+    }
+
+    for (let i = 0; i<files.length; i++){
+        let opt = document.createElement('option');
+        opt.value = files[i];
+        opt.innerHTML = files[i];
+        fileSelect.appendChild(opt);
+    }
+}
+
 function init() {
 
     visiblePageOutline = document.getElementById('visible-outline-page');
@@ -56,7 +80,17 @@ function init() {
 
     document.getElementById('load-json-btn').addEventListener('click', () => {
         rectangleManager.loadJSON(document.getElementById('json-input').value);
-    })
+    });
+
+    document.getElementById('saveFileBtn').addEventListener('click', () => {
+        rectangleManager.saveToLocalStorage(document.getElementById('fileNameInput').value);
+    });
+
+    reRenderFileSelect();
+
+    document.getElementById('loadFileBtn').addEventListener('click', () => {
+        rectangleManager.loadFromLocalStorage(document.getElementById('fileSelect').value);
+    });
 }
 
 init();
