@@ -2,7 +2,11 @@
 
 Access latest release here: https://saturn91.github.io/simpleTextEditorOnline/
 
-##planned Features
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Saturn91/simpleTextEditorOnline/master/documentation/usage.png" alt="application usage"/>
+</div>
+
+## planned Features
 - Possibility for the user to delete files which are stored in the local storage
 - Images within Text
 
@@ -12,9 +16,9 @@ I just god feed up with some big Company's Text-Editor office app. The way text 
 to reduce the often times bloated interface and possibilities you have with your commen Text Editor. 
 
 In this first implementation it is already capable of generating a single Page A4 Letter such as shown bellow:
-
-[ADD IMAGE]
-
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Saturn91/simpleTextEditorOnline/master/documentation/example.png" alt="generated A4 Letter as PDF" width="500px"/>
+</div>
 ## Usage
 The whole application assumes on the fact that you can represent different paragraphs (and Titles) as a Rectangle which you can freely place on the page. Please note that the preview on
 the right site is only used to select (see section Select/Edit an existing Paragraph). Editing is done in the left hand side menu.
