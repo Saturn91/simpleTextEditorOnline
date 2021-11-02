@@ -12,5 +12,6 @@ window.onafterprint = () => {
     document.body.innerHTML = originalContent;
     closeMenu();
     init();
+    updateJsonField();
     document.body.classList.remove('print');
 }

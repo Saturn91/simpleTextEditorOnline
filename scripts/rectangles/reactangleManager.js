@@ -4,17 +4,17 @@ class RectangleManager {
         this.counter = 0;
     }   
 
-    addRectangle(rectangle) {
+    addRectangle(rectangle, font, text) {
         const id = 'rect-'+this.counter;
         const div = printableArea.appendChild(document.createElement('div'));
         div.id = id;
-        const font = new Font(FontType.Default, convertToStyleStringPX(16));
+        if(!font) font = new Font(FontType.Default, convertToStyleStringPX(16));
 
         this.rectangles[id] = {
             rect:  rectangle,
             div: div,
             font: font,
-            text: id
+            text: text ? text :id
         }
 
         renderElement(this.rectangles[id], ['editor-rect']);       
@@ -42,6 +42,28 @@ class RectangleManager {
 
         this.rectangles[id].div.addEventListener('click', () => {
             openMenu(id);
+        })
+    }
+
+    saveToJSON() {
+        return JSON.stringify(this.rectangles);
+    }
+
+    loadJSON(jsonString) {
+        const newRectangles = JSON.parse(jsonString);
+        let divsToRemove = [];
+        Object.keys(this.rectangles).forEach(key => {
+            divsToRemove.push(this.rectangles[key].div);
+        });
+
+        divsToRemove.forEach(div => {
+            printableArea.removeChild(div);
+        })
+
+        this.rectangles = {};
+
+        Object.keys(newRectangles).forEach(key => {
+            this.addRectangle(newRectangles[key].rect, newRectangles[key].font, newRectangles[key].text);
         })
     }
 }

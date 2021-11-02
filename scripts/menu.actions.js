@@ -5,6 +5,7 @@ let actualRectangle = undefined;
 function AddRectangle() {
     let rectangle = actualRectangle ? actualRectangle.rect : new Rectangle(0, 0, 100, 10);
     openMenu(rectangleManager.addRectangle(rectangle));
+    updateJsonField();
 }
 
 function openMenu(id) {
@@ -66,9 +67,14 @@ function getRectangleObjFromForm() {
     }
 }
 
+function updateJsonField() {
+    document.getElementById('json-input').value = rectangleManager.saveToJSON();
+}
+
 function submitChanges() {
     rectangleManager.rectangles[document.getElementById('title-input').innerText] = getRectangleObjFromForm();
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
+    updateJsonField();
     renderElement(formInput, []);
 }
 

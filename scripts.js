@@ -53,6 +53,10 @@ function init() {
     }
 
     Object.keys(rectangleManager.rectangles).forEach(key => rectangleManager.addEventListenerToRectangle(key));
+
+    document.getElementById('load-json-btn').addEventListener('click', () => {
+        rectangleManager.loadJSON(document.getElementById('json-input').value);
+    })
 }
 
 init();
