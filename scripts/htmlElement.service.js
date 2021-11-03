@@ -29,8 +29,9 @@ function renderElement(rectangle, classElements) {
     rectangle.div.style = "";
     if(rectangle.backgroundImg) {
         console.log('draw img!');
+        console.log(toUTF8Array(rectangle.backgroundImg));
         const img = document.createElement('img');
-        img.src = 'data:image/jpeg;base64,'+ encode(rectangle.backgroundImg);
+        img.src = 'data:image/jpeg;base64,'+ encode(rectangle.backgroundImg.split('|'));
         rectangle.div.appendChild(img);
     }
     setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);

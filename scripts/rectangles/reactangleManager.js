@@ -79,7 +79,7 @@ class RectangleManager {
         this.rectangles = {};
 
         Object.keys(newRectangles).forEach(key => {
-            this.addRectangle(newRectangles[key].rect, newRectangles[key].font, newRectangles[key].text);
+            this.addRectangle(newRectangles[key].rect, newRectangles[key].font, newRectangles[key].text, newRectangles[key].backgroundImg);
         })
     }
 }

@@ -64,7 +64,7 @@ function fillMenuValues(element) {
 
 function getRectangleObjFromForm(id) {
     loadBackgroundImagefromFile((data) => {
-        rectangleManager.rectangles[id].backgroundImg = new Uint8Array(data);
+        rectangleManager.rectangles[id].backgroundImg =  new Uint8Array(data).join('|');
         renderElement(rectangleManager.rectangles[id], []);
     });
     return {
