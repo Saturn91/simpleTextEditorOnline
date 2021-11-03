@@ -91,6 +91,10 @@ function init() {
     document.getElementById('loadFileBtn').addEventListener('click', () => {
         rectangleManager.loadFromLocalStorage(document.getElementById('fileSelect').value);
     });
+
+    document.getElementById('load-file-btn').addEventListener('click', () => {
+        loadFromFile();
+    })
 }
 
 init();
