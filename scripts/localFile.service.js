@@ -3,7 +3,6 @@ function loadFromFile(file, onLoad, onError) {
         var reader = new FileReader();
         reader.readAsText(file, "UTF-8");
         reader.onload = function (evt) {
-            console.log(evt.target.result);
             onLoad(evt.target.result);
         }
         reader.onerror = function (evt) {
