@@ -44,6 +44,7 @@ class RectangleManager {
 
         this.rectangles[id].div.addEventListener('click', () => {
             openMenu(id);
+            openToolsMenu();
         })
     }
 
