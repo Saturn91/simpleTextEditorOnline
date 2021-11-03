@@ -5,7 +5,6 @@ let actualRectangle = undefined;
 function AddRectangle() {
     let rectangle = actualRectangle ? actualRectangle.rect : new Rectangle(0, 0, 100, 10);
     openMenu(rectangleManager.addRectangle(rectangle));
-    updateJsonField();
 }
 
 function openToolsMenu() {
@@ -79,10 +78,6 @@ function getRectangleObjFromForm() {
         ),
         text: document.getElementById('text-input').value == '' ? ' ' : document.getElementById('text-input').value
     }
-}
-
-function updateJsonField() {
-    document.getElementById('json-input').value = rectangleManager.saveToJSON();
 }
 
 function submitChanges() {

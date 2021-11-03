@@ -10,7 +10,12 @@ let widthAsProcent = document.getElementById('width-input');
 setElementSize(visiblePageOutline, actualFormat.width, actualFormat.height);
 setElementSize(printableArea, actualFormat.printableWidth, actualFormat.printableHeight);
 
-function reRenderFileSelect() {
+function reRenderBrowserFiles() {
+    reRenderBrowserFileSelect();
+    reRenderBrowserFileList();
+}
+
+function reRenderBrowserFileSelect() {
     const fileSelect = document.getElementById('fileSelect');
     const actualOptions = [...fileSelect.children];
     actualOptions.forEach(child => {
@@ -20,11 +25,7 @@ function reRenderFileSelect() {
     const option1 = fileSelect.appendChild(document.createElement('option'));
     option1.value = 'none';
     option1.innerHTML = 'no File selected'
-    let files = [];
-
-    for (var key in localStorage){
-        if(key.includes(localStorgeFilePath+"-")) files.push(key.substring(localStorgeFilePath.length+1));
-    }
+    const files = getAllBrowserFiles();
 
     for (let i = 0; i<files.length; i++){
         let opt = document.createElement('option');
@@ -32,6 +33,39 @@ function reRenderFileSelect() {
         opt.innerHTML = files[i];
         fileSelect.appendChild(opt);
     }
+}
+
+function onDeleteBrowserFile(browserFile) {
+    alert('delete: ' + browserFile);
+    localStorage.removeItem(localStorgeFilePath+"-"+browserFile);
+    reRenderBrowserFiles();
+}
+
+function reRenderBrowserFileList() {
+    const browserList = document.getElementById('browser-file-list');
+
+    const files = getAllBrowserFiles();
+
+    browserList.innerHTML = "";
+
+    files.forEach(file => {
+        const div = browserList.appendChild(document.createElement('div'));
+        div.innerHTML = `
+            <label for="delBtn">${file}</label>
+            <button id='delBtn-${file}'>Delete</button>
+        `;
+        document.getElementById('delBtn-'+ file).addEventListener('click', () => onDeleteBrowserFile(file));
+    })
+}
+
+function getAllBrowserFiles() {
+    let files = [];
+
+    for (var key in localStorage){
+        if(key.includes(localStorgeFilePath+"-")) files.push(key.substring(localStorgeFilePath.length+1));
+    }
+
+    return files;
 }
 
 function init() {
@@ -86,7 +120,12 @@ function init() {
 
     Object.keys(rectangleManager.rectangles).forEach(key => rectangleManager.addEventListenerToRectangle(key));
 
-    reRenderFileSelect();
+    document.getElementById('saveFileBtn').addEventListener('click', () => {
+        rectangleManager.saveToLocalStorage(document.getElementById('fileNameInput').value);
+        reRenderBrowserFiles();
+    });
+
+    reRenderBrowserFiles();
 
     document.getElementById('loadFileBtn').addEventListener('click', () => {
         rectangleManager.loadFromLocalStorage(document.getElementById('fileSelect').value);
