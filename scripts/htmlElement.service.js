@@ -23,7 +23,11 @@ function setFont(element, font) {
 }
 
 function renderElement(rectangle, classElements) {
+    rectangle.div.innerHTML = '';
     rectangle.div.style = "";
+    if(rectangle.backgroundImg) {
+        console.log(rectangle.backgroundImg);
+    }
     setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);
     positionHTMLElement(rectangle.div, rectangle.rect.x, rectangle.rect.y);
     rectangle.div.style.setProperty('background-color', rectangle.rect.backGroundColor);

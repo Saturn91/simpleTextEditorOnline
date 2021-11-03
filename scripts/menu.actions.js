@@ -48,6 +48,7 @@ function getFontTypeFromCheckboxes() {
 }
 
 function fillMenuValues(element) {
+    document.getElementById('elementForm').reset();
     document.getElementById('title-input').innerText = element.div.id;
     document.getElementById('positionX-input').value = convertMMStyleToNumber(element.rect.x);
     document.getElementById('positionY-input').value = convertMMStyleToNumber(element.rect.y);
@@ -57,11 +58,15 @@ function fillMenuValues(element) {
     document.getElementById('text-input').value = element.div.innerText;
     document.getElementById('backgroundColor-input').value = element.rect.backGroundColor;
     document.getElementById('font-color-input').value = element.font.color;
+    if (element.backgroundImg) document.getElementById('backgroundImage-upload').value = element.backgroundImg;
     updateFontTypeCheckboxes(element.font.type);    
     document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
 }
 
 function getRectangleObjFromForm() {
+    loadBackgroundImagefromFile((data) => {
+        actualRectangle.backgroundImg = data;
+    });
     return {
         rect: new Rectangle(
             document.getElementById('positionX-input').value,
@@ -76,14 +81,14 @@ function getRectangleObjFromForm() {
             convertToStyleStringPX(document.getElementById('font-size-input').value),
             document.getElementById('font-color-input').value
         ),
-        text: document.getElementById('text-input').value == '' ? ' ' : document.getElementById('text-input').value
+        text: document.getElementById('text-input').value == '' ? ' ' : document.getElementById('text-input').value,
+        backgroundImg: actualRectangle.backgroundImg
     }
 }
 
 function submitChanges() {
     rectangleManager.rectangles[document.getElementById('title-input').innerText] = getRectangleObjFromForm();
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
-    updateJsonField();
     renderElement(formInput, []);
 }
 

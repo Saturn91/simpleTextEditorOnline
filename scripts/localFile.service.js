@@ -1,15 +1,37 @@
-function loadFromFile() {
-    const file = document.getElementById('load-file-input').files[0];
+function loadFromFile(file, onLoad, onError) {
     if(file) {
         var reader = new FileReader();
         reader.readAsText(file, "UTF-8");
         reader.onload = function (evt) {
             console.log(evt.target.result);
-            rectangleManager.loadJSON(evt.target.result);
+            onLoad(evt.target.result);
         }
         reader.onerror = function (evt) {
-            document.getElementById('load-file-input').innerHTML = "error reading file";
+            onError();
         }   
+    }
+}
+
+function loadJSONasDocument() {
+    const file = document.getElementById('load-file-input').files[0];
+    loadFromFile(file, (fileData) => {
+        rectangleManager.loadJSON(fileData);
+    }, 
+    () => {
+        document.getElementById('load-file-input').innerHTML = "error reading file";
+    })
+}
+
+function loadBackgroundImagefromFile(onload) {
+    const file = document.getElementById('backgroundImage-upload').files[0];
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+        console.log(reader.result);
+        onload(reader.result);
+    }, false);
+
+    if (file) {
+        reader.readAsArrayBuffer(file);
     }
 }
 

@@ -6,7 +6,7 @@ class RectangleManager {
         this.counter = 0;
     }   
 
-    addRectangle(rectangle, font, text) {
+    addRectangle(rectangle, font, text, backgroundImg) {
         const id = 'rect-'+this.counter;
         const div = printableArea.appendChild(document.createElement('div'));
         div.id = id;
@@ -16,7 +16,8 @@ class RectangleManager {
             rect:  rectangle,
             div: div,
             font: font,
-            text: text ? text :id
+            text: text ? text :id,
+            backgroundImg: backgroundImg ? backgroundImg : undefined
         }
 
         renderElement(this.rectangles[id], ['editor-rect']);       

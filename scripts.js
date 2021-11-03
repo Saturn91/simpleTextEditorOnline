@@ -132,7 +132,7 @@ function init() {
     });
 
     document.getElementById('load-file-btn').addEventListener('click', () => {
-        loadFromFile();
+        loadJSONasDocument();
     })
 
     document.getElementById('save-file-btn').addEventListener('click', () => {
