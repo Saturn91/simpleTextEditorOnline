@@ -88,6 +88,7 @@ function getRectangleObjFromForm(id) {
 
 function submitChanges() {
     const id = document.getElementById('title-input').innerText;
+    console.log('rerender');
     rectangleManager.rectangles[id] = getRectangleObjFromForm(id);
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
     renderElement(formInput, []);

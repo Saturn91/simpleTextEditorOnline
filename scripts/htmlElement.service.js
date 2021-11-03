@@ -49,3 +49,13 @@ function renderElement(rectangle, classElements) {
         if(!rectangle.div.classList.contains(classElement)) rectangle.div.classList.add(classElement);
     })    
 }
+
+function changeChildRenderOrder(child, direction) {
+        parent = child.parentNode;
+
+    if (direction === -1 && child.previousElementSibling) {
+        parent.insertBefore(child, child.previousElementSibling);
+    } else if (direction === 1 && child.nextElementSibling) {
+        parent.insertBefore(child, child.nextElementSibling.nextElementSibling)
+    }
+}

@@ -138,6 +138,14 @@ function init() {
     document.getElementById('save-file-btn').addEventListener('click', () => {
         download('my-online-text-editor.txt',rectangleManager.saveToJSON());
     })
+
+    document.getElementById('z-Up-Btn').addEventListener('click', () => {
+        changeChildRenderOrder(document.getElementById(document.getElementById('title-input').innerText), 1);
+    });
+
+    document.getElementById('z-Down-Btn').addEventListener('click', () => {
+        changeChildRenderOrder(document.getElementById(document.getElementById('title-input').innerText), -1);
+    });
 }
 
 init();
