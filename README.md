@@ -58,4 +58,4 @@ next Time you open that Browser (on the same machine!), if you click on the "no 
 - If you would like to store your data somewhere else (i.e. some cloud storage or localy in a file) you can press the button "Download document as a file". This will trigger a download of you document as a text file (json formated). To import it again, click the "Browse" button on top of the File menu, select your file on your local Machine. Finaly hit the button import which will load the data back in to the application and display it.
 
 ## <a name="plannedFeatures">Planned Features</a>
-- possibility to add Images within paragraph
+- multiple pages support
