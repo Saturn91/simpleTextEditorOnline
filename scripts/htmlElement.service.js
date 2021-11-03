@@ -29,16 +29,22 @@ function renderElement(rectangle, classElements) {
     rectangle.div.style = "";
     if(rectangle.backgroundImg) {
         console.log('draw img!');
-        console.log(toUTF8Array(rectangle.backgroundImg));
         const img = document.createElement('img');
         img.src = 'data:image/jpeg;base64,'+ encode(rectangle.backgroundImg.split('|'));
+        img.style.setProperty('width', rectangle.rect.width);
+        img.style.setProperty('height', rectangle.rect.height);
         rectangle.div.appendChild(img);
     }
     setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);
     positionHTMLElement(rectangle.div, rectangle.rect.x, rectangle.rect.y);
     rectangle.div.style.setProperty('background-color', rectangle.rect.backGroundColor);
     setFont(rectangle.div, rectangle.font);
-    //rectangle.div.innerText = rectangle.text;
+    const p = document.createElement('p');
+    p.style.setProperty('width', rectangle.rect.width);
+    p.style.setProperty('height', rectangle.rect.height);
+    p.innerText = rectangle.text;
+    rectangle.div.appendChild(p);
+    
     classElements.forEach(classElement => {
         if(!rectangle.div.classList.contains(classElement)) rectangle.div.classList.add(classElement);
     })    
