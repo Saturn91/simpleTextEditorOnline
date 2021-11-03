@@ -24,15 +24,20 @@ function setFont(element, font) {
 
 function renderElement(rectangle, classElements) {
     rectangle.div.innerHTML = '';
+    
+    console.log('draw element');
     rectangle.div.style = "";
     if(rectangle.backgroundImg) {
-        console.log(rectangle.backgroundImg);
+        console.log('draw img!');
+        const img = document.createElement('img');
+        img.src = 'data:image/jpeg;base64,'+ encode(rectangle.backgroundImg);
+        rectangle.div.appendChild(img);
     }
     setElementSize(rectangle.div,  rectangle.rect.width, rectangle.rect.height);
     positionHTMLElement(rectangle.div, rectangle.rect.x, rectangle.rect.y);
     rectangle.div.style.setProperty('background-color', rectangle.rect.backGroundColor);
     setFont(rectangle.div, rectangle.font);
-    rectangle.div.innerText = rectangle.text;
+    //rectangle.div.innerText = rectangle.text;
     classElements.forEach(classElement => {
         if(!rectangle.div.classList.contains(classElement)) rectangle.div.classList.add(classElement);
     })    

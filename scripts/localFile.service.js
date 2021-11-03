@@ -26,7 +26,6 @@ function loadBackgroundImagefromFile(onload) {
     const file = document.getElementById('backgroundImage-upload').files[0];
     var reader = new FileReader();
     reader.addEventListener("load", function () {
-        console.log(reader.result);
         onload(reader.result);
     }, false);
 

@@ -58,14 +58,14 @@ function fillMenuValues(element) {
     document.getElementById('text-input').value = element.div.innerText;
     document.getElementById('backgroundColor-input').value = element.rect.backGroundColor;
     document.getElementById('font-color-input').value = element.font.color;
-    if (element.backgroundImg) document.getElementById('backgroundImage-upload').value = element.backgroundImg;
     updateFontTypeCheckboxes(element.font.type);    
     document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
 }
 
-function getRectangleObjFromForm() {
+function getRectangleObjFromForm(id) {
     loadBackgroundImagefromFile((data) => {
-        actualRectangle.backgroundImg = data;
+        rectangleManager.rectangles[id].backgroundImg = new Uint8Array(data);
+        renderElement(rectangleManager.rectangles[id], []);
     });
     return {
         rect: new Rectangle(
@@ -87,7 +87,8 @@ function getRectangleObjFromForm() {
 }
 
 function submitChanges() {
-    rectangleManager.rectangles[document.getElementById('title-input').innerText] = getRectangleObjFromForm();
+    const id = document.getElementById('title-input').innerText;
+    rectangleManager.rectangles[id] = getRectangleObjFromForm(id);
     const formInput = rectangleManager.rectangles[document.getElementById('title-input').innerText];
     renderElement(formInput, []);
 }
