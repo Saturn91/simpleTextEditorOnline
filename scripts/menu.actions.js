@@ -90,18 +90,3 @@ function deleteActualRectangle() {
         openMenu(id);
     }
 }
-
-function loadFromFile() {
-    const file = document.getElementById('load-file-input').files[0];
-    if(file) {
-        var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-        reader.onload = function (evt) {
-            console.log(evt.target.result);
-            rectangleManager.loadJSON(evt.target.result);
-        }
-        reader.onerror = function (evt) {
-            document.getElementById('load-file-input').innerHTML = "error reading file";
-        }   
-    }
-}
