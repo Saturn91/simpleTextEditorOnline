@@ -8,6 +8,16 @@ function AddRectangle() {
     updateJsonField();
 }
 
+function openToolsMenu() {
+    document.getElementById('file-menu').style.setProperty('display', 'none');
+    document.getElementById('editor-menu').style.setProperty('display', 'block');
+}
+
+function openFileMenu() {
+    document.getElementById('file-menu').style.setProperty('display', 'block');
+    document.getElementById('editor-menu').style.setProperty('display', 'none');
+}
+
 function openMenu(id) {
     if(actualRectangle) {
         if(actualRectangle.div.classList.contains('highlighted')) actualRectangle.div.classList.remove('highlighted');

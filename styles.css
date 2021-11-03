@@ -5,8 +5,15 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.toolbar {
+.submenu {
     height: 30px;
+    margin: 5px;
+}
+
+.submenu button {
+    height: 100%;
+    min-width: 150px;
+    margin-right: 20px;
 }
 
 .container {
@@ -70,9 +77,10 @@ body {
 }
 
 .input-line {
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: stretch;
+    margin-top: 5px;
 }
 
 .input-line label {
@@ -82,6 +90,15 @@ body {
 .input-line input {
     width: 100%;
     margin-right: 5px;
+}
+
+.input-line select {
+    width: 100%;
+    margin-right: 5px;
+}
+
+.input-line button {
+    width: 200px;
 }
 
 .input-line .checkbox {
@@ -97,10 +114,15 @@ body {
 }
 
 .form-end-btn {
-    width: 100%;
+    width: 97%;
     height: 30px;
+    margin: 0 5px; 
 }
 
 .print .highlighted {
     border-color: rgba(0, 0, 0, 0);
+}
+
+.margin-top-spaced {
+    margin-top: 50px;
 }

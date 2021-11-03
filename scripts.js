@@ -39,6 +39,14 @@ function init() {
     visiblePageOutline = document.getElementById('visible-outline-page');
     printableArea = document.getElementById('printable-area');
 
+    document.getElementById('show-file-menu-btn').addEventListener('click', () => {
+        openFileMenu();
+    })
+
+    document.getElementById('show-tools-menu-btn').addEventListener('click', () => {
+        openToolsMenu();
+    })
+
     document.getElementById('addRectangleBtn').addEventListener('click', () => {
         AddRectangle();
     })
@@ -77,14 +85,6 @@ function init() {
     }
 
     Object.keys(rectangleManager.rectangles).forEach(key => rectangleManager.addEventListenerToRectangle(key));
-
-    document.getElementById('load-json-btn').addEventListener('click', () => {
-        rectangleManager.loadJSON(document.getElementById('json-input').value);
-    });
-
-    document.getElementById('saveFileBtn').addEventListener('click', () => {
-        rectangleManager.saveToLocalStorage(document.getElementById('fileNameInput').value);
-    });
 
     reRenderFileSelect();
 

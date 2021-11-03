@@ -19,25 +19,31 @@
     <script type="text/javascript"  src="./scripts/localFile.service.js"></script>
 </head>
 <body>
-    <div class='toolbar'>
-        <button id='addRectangleBtn'>Add Rectangle</button>
-        <input type='text' value='new File' id='fileNameInput'><button id='saveFileBtn'>Save File</button>
-        <select id='fileSelect'>
-            <option></option>
-        </select>
-        <button id='loadFileBtn'>Load File</button>
-        <input type='file' id='load-file-input'>
-        <button id='load-file-btn'>Upload file</button>
-        <button id='save-file-btn'>download as file</button>
+    <div class='submenu'>
+        <button id='show-file-menu-btn'>File</button>
+        <button id='show-tools-menu-btn'>Tools</button>
     </div>
     <div class="container">
-        <div class='menu'>
-            <div class='input-line'>
-                <label for="json">Json:</label>
-                <textarea id='json-input' name='json'></textarea>
+        <div id='file-menu' class='menu'>
+            <div class='input-line margin-top-spaced'>
+                <input type='file' id='load-file-input'>
+                <button id='load-file-btn'>Import file</button>
+            </div>           
+            <button id='save-file-btn' class='form-end-btn'>download document as File</button>
+
+            <div class='input-line margin-top-spaced'>
+                <input type='text' value='new File' id='fileNameInput'><button id='saveFileBtn'>Browser save</button>
             </div>
-            <button class='form-end-btn' type='button' id='load-json-btn'>Load</button>
-            <form action="/action_page.php" class='hidden' id='elementForm'>
+            <div class='input-line'>
+                <select id='fileSelect'>
+                    <option></option>
+                </select>
+                <button id='loadFileBtn'>Browser Load</button>
+            </div>
+        </div> 
+        <div id='editor-menu' class='menu' style='display: none'>
+            <button class='form-end-btn margin-top-spaced' id='addRectangleBtn'>Add Rectangle</button>
+            <form action="/action_page.php" class='hidden margin-top-spaced' id='elementForm'>
                 <h1 id='title-input'>Rect-0</h1>
                 <div class='input-line'>
                     <label for="positionX">Pos [mm] x:</label>
@@ -84,8 +90,9 @@
                 </div>
                 <button class='form-end-btn' type='button' id='delte-rect-btn'>Delete</button>
                 <button class='form-end-btn' type='button' id='edit-rect-btn'>Edit</button>
-            </form>   
-        </div>
+            </form>
+        </div>              
+        
         <div class='editor center-children-horizontal'>
             <div id='visible-outline-page' class='visible-outline center-children-horizontal'>
                 <div id='printable-area' class='printable-area'>
