@@ -13,8 +13,8 @@ Access latest release here: https://saturn91.github.io/simpleTextEditorOnline/
 
 ## <a name="purpose-tag">Purpose</a>
 
-I just god feed up with some big Company's Text-Editor office app. The way text and formats break when you add elements in the wrong location is mind blwoing... The Goal of this application is 
-to reduce the often times bloated interface and possibilities you have with your commen Text Editor. 
+I just god feed up with some big Company's Text-Editor office app. The way text and formats break when you add elements in the wrong location is mind blowing... 
+The Goal of this application is to reduce the often times bloated interface and possibilities you have with your commen Text Editor. 
 
 In this first implementation it is already capable of generating a single Page A4 Letter such as shown bellow:
 <div align="center">
@@ -22,8 +22,7 @@ In this first implementation it is already capable of generating a single Page A
 </div>
 
 ## <a name="usage-tag">How to use</a>
-The whole application assumes on the fact that you can represent different paragraphs (and Titles) as a Rectangle which you can freely place on the page. Please note that the preview on
-the right site is only used to select (see section Select/Edit an existing Paragraph). Editing is done in the left hand side menu.
+The whole application is based on the fact that you can represent different paragraphs (and Titles) as a Rectangle which you can freely place on the page. Please note that the preview on the right site is only used to select (see section Select/Edit an existing Paragraph). Editing is done in the left hand side menu.
 
 ### Adding a new Paragraph
 
@@ -44,8 +43,7 @@ the right site is only used to select (see section Select/Edit an existing Parag
 
 ### Export, Save and Print
 
-As this Application is "just" a simple HTML/JS/CSS Page there is no Backend which would you allow to store your files online. But I implemented some other possibilities to store 
-your Data for reusage, sharing and saving.
+As this Application is "just" a simple HTML/JS/CSS Page there is no Backend which would you allow to store your files online. But I implemented some other possibilities to store your Data for reusage, sharing and saving.
 
 ### Print / Export as PDF
 
@@ -54,12 +52,10 @@ most Browser allow you to select "Print as PDF" in your printer selection. (Cert
 
 ### Save your work so you can reuse it or proceed Work another day
 
-- In the top Toolbar you have an Option "Save File", Edit the "new File" field and press the button. This will save a copy of your Data within the local storage of your Browser (i.e. Firefox, Chrome or Edge) if you reopen the Browser 
-next Time you open that Browser (on the same machine!), if you click on the "no file selected" Field, a Dropdown should open containing your choosen Filename. Select it an press load, proceed work.
+- In the File-Menu you have an Option "Browser save", Edit the "new File" field and press the button. This will save a copy of your Data within the local storage of your Browser (i.e. Firefox, Chrome or Edge) if you reopen the Browser 
+next Time you open that Browser (on the same machine!), if you click on the "no file selected" Field, a Dropdown should open containing your choosen Filename. Select it an press load, proceed work. The List on the bottom of the File Menu shows you all the Files stored in your browser.
 
-- If you would like to store your data somewhere else (i.e. some cloud storage or localy in a file) what you can do is extract the large text part from the "Json:" Textfield. copy the whole 
-Text and store in some textfile. To import it, simple copy the text within the file and paste it in the "Json:" Textfield. By than pressing the button "Load" your data shout reapear.
+- If you would like to store your data somewhere else (i.e. some cloud storage or localy in a file) you can press the button "Download document as a file". This will trigger a download of you document as a text file (json formated). To import it again, click the "Browse" button on top of the File menu, select your file on your local Machine. Finaly hit the button import which will load the data back in to the application and display it.
 
 ## <a name="plannedFeatures">Planned Features</a>
-- Possibility for the user to delete files which are stored in the local storage
-- Images within Text
+- possibility to add Images within paragraph
