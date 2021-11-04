@@ -146,6 +146,10 @@ function init() {
     document.getElementById('z-Down-Btn').addEventListener('click', () => {
         changeChildRenderOrder(document.getElementById(document.getElementById('title-input').innerText), -1);
     });
+
+    document.getElementById('delete-backgroundImage-btn').addEventListener('click', () => {
+        deleteCurrentBackgroundImage();
+    });
 }
 
 init();

@@ -84,8 +84,14 @@
                     <label for="backgroundColor">Rect Color:</label>
                     <input type="color" name="backgroundColor" value="#ffffff" class='backgroundColor-input' id='backgroundColor-input'>
                 </div>
-                <div class='input-line margin-top-spaced'>
+                <div class='input-line margin-top-spaced' id='image-select'>
                     <input type='file' value='none' id='backgroundImage-upload'>
+                </div>
+                <div class='input-line imagePreview hidden' id='image-preview'>
+                    <img width="200px" height="200px" id='background-image-preview'>
+                    <div class='buttonContainer'>
+                        <button class='red-cross-btn' id='delete-backgroundImage-btn'>x</button>
+                    </div>                    
                 </div>
                 <div class='input-line'>
                     <label for="color">Font Color: </label>

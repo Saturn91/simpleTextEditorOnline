@@ -47,6 +47,25 @@ function getFontTypeFromCheckboxes() {
     if(document.getElementById('bold-font-input').checked) return FontType.Bold;
 }
 
+function showImagePreview(imageData) {
+    const imagePreview = document.getElementById('image-preview');
+    if(imagePreview.classList.contains('hidden')) imagePreview.classList.remove('hidden');
+
+    const imageSelect = document.getElementById('image-select');
+    if(!imageSelect.classList.contains('hidden')) imageSelect.classList.add('hidden');
+
+    document.getElementById('background-image-preview').src = 'data:image/jpeg;base64,'+ encode(imageData.split('|'));
+}
+
+function showImageSelect() {
+    const imagePreview = document.getElementById('image-preview');
+    if(!imagePreview.classList.contains('hidden')) imagePreview.classList.add('hidden');
+
+    const imageSelect = document.getElementById('image-select');
+    if(imageSelect.classList.contains('hidden')) imageSelect.classList.remove('hidden');
+}
+    
+
 function fillMenuValues(element) {
     document.getElementById('elementForm').reset();
     document.getElementById('title-input').innerText = element.div.id;
@@ -60,12 +79,16 @@ function fillMenuValues(element) {
     document.getElementById('font-color-input').value = element.font.color;
     updateFontTypeCheckboxes(element.font.type);    
     document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
+
+    //show or hide backgroundImage selector / preview
+    if(!element.backgroundImg) showImageSelect();
 }
 
 function getRectangleObjFromForm(id) {
     loadBackgroundImagefromFile((data) => {
         rectangleManager.rectangles[id].backgroundImg =  new Uint8Array(data).join('|');
         renderElement(rectangleManager.rectangles[id], []);
+        showImagePreview(rectangleManager.rectangles[id].backgroundImg);
     });
     return {
         rect: new Rectangle(
@@ -101,4 +124,9 @@ function deleteActualRectangle() {
     } else {
         openMenu(id);
     }
+}
+
+function deleteCurrentBackgroundImage() {
+    rectangleManager.rectangles[document.getElementById('title-input').innerText].backgroundImg = undefined;
+    submitChanges();
 }
