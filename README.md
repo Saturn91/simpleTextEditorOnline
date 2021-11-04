@@ -42,7 +42,7 @@ The whole application is based on the fact that you can represent different para
 3. The Menu on the left side will now show the properties of the newly selected Paragraph
 
 ### Insert an Image
-In this applictaion an image is a paragraph with no text in which a background image is set. Do insert an Image follow these steps.
+In this applictaion an image is a paragraph with no text, in which a background image is set. Do insert an Image follow these steps.
 
 1. Create a Paragraph or select an existing one as you would do for a text
 2. In the menu on the left you find a browse button (next to "no File selected") and a set Image Button
