@@ -147,6 +147,10 @@ function init() {
         changeChildRenderOrder(document.getElementById(document.getElementById('title-input').innerText), -1);
     });
 
+    document.getElementById('setBackgroundImg-btn').addEventListener('click', () => {
+        uploadBackgroundImage();
+    });
+
     document.getElementById('delete-backgroundImage-btn').addEventListener('click', () => {
         deleteCurrentBackgroundImage();
     });

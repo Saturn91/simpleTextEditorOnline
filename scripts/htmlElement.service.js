@@ -25,10 +25,8 @@ function setFont(element, font) {
 function renderElement(rectangle, classElements) {
     rectangle.div.innerHTML = '';
     
-    console.log('draw element');
     rectangle.div.style = "";
     if(rectangle.backgroundImg) {
-        console.log('draw img!');
         const img = document.createElement('img');
         img.src = 'data:image/jpeg;base64,'+ encode(rectangle.backgroundImg.split('|'));
         img.style.setProperty('width', rectangle.rect.width);

@@ -29,6 +29,8 @@ function openMenu(id) {
     actualRectangle.div.classList.add('highlighted');
 
     fillMenuValues(actualRectangle);
+
+    actualRectangle.backgroundImg ? showImagePreview(actualRectangle.backgroundImg) : showImageSelect();
 }
 
 function closeMenu() {
@@ -79,17 +81,9 @@ function fillMenuValues(element) {
     document.getElementById('font-color-input').value = element.font.color;
     updateFontTypeCheckboxes(element.font.type);    
     document.getElementById('font-size-input').value = convertPXStyleToNumber(element.font.size);
-
-    //show or hide backgroundImage selector / preview
-    if(!element.backgroundImg) showImageSelect();
 }
 
-function getRectangleObjFromForm(id) {
-    loadBackgroundImagefromFile((data) => {
-        rectangleManager.rectangles[id].backgroundImg =  new Uint8Array(data).join('|');
-        renderElement(rectangleManager.rectangles[id], []);
-        showImagePreview(rectangleManager.rectangles[id].backgroundImg);
-    });
+function getRectangleObjFromForm(id) {   
     return {
         rect: new Rectangle(
             document.getElementById('positionX-input').value,
@@ -105,7 +99,7 @@ function getRectangleObjFromForm(id) {
             document.getElementById('font-color-input').value
         ),
         text: document.getElementById('text-input').value == '' ? ' ' : document.getElementById('text-input').value,
-        backgroundImg: actualRectangle.backgroundImg
+        backgroundImg: rectangleManager.rectangles[id].backgroundImg
     }
 }
 
@@ -126,7 +120,17 @@ function deleteActualRectangle() {
     }
 }
 
+function uploadBackgroundImage() {
+    const id = document.getElementById('title-input').innerText;
+    loadBackgroundImagefromFile((data) => {
+        rectangleManager.rectangles[id].backgroundImg =  new Uint8Array(data).join('|');
+        renderElement(rectangleManager.rectangles[id], []);
+        showImagePreview(rectangleManager.rectangles[id].backgroundImg);
+    });
+}
+
 function deleteCurrentBackgroundImage() {
     rectangleManager.rectangles[document.getElementById('title-input').innerText].backgroundImg = undefined;
+    showImageSelect();
     submitChanges();
 }
